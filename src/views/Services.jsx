@@ -74,53 +74,55 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Event Coverage */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-            <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-              Event Coverage
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Comprehensive photography for corporate events, parties, and more
-            </p>
-            <ul className="text-gray-600 space-y-2 mb-4">
-              <li>💰 Starting from ₹10,000</li>
-              <li>⏱ 5 hours coverage</li>
-              <li>🎤 Corporate functions & parties</li>
-              <li>📸 Team photos & candid moments</li>
-              <li>🖼 Edited online gallery</li>
-            </ul>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="#samples-event"
-                className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
-              >
-                View Samples
-              </a>
-              <a
-                href="#book"
-                className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
+                 {/* Event Coverage */}
+        <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
+             <h2 className="text-2xl font-bold mb-2 text-yellow-800">
+               Event Coverage
+             </h2>
+             <p className="text-gray-700 mb-4">
+               Comprehensive photography for corporate events, parties, and more
+             </p>
+             <ul className="text-gray-600 space-y-2 mb-4">
+               <li>💰 Starting from ₹10,000</li>
+               <li>⏱ 5 hours coverage</li>
+               <li>🎤 Corporate functions & parties</li>
+               <li>📸 Team photos & candid moments</li>
+               <li>🖼 Edited online gallery</li>
+             </ul>
+                   <div className="flex gap-4 mt-6">
+                     <a
+                       href="#samples-event"
+                       className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
+                     >
+                       View Samples
+                     </a>
+                     <a
+                       href="#book"
+                       className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
+                     >
+                       Book Now
+                     </a>
+                   </div>
+                 </div>
+       
+                 {/* Product Photography */}
+        <div className=" bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
+             <h2 className="text-2xl font-bold mb-2 text-yellow-800">
+               Product Photography
+             </h2>
+             <p className="text-gray-700 mb-4">
+               High-quality images to make your products stand out
+             </p>
+             <ul className="text-gray-600 space-y-2 mb-4">
+               <li>💰 Starting from ₹8,000</li>
+               <li>⏱ Half-day shoot</li>
+               <li>📦 Studio setup or on-site</li>
+               <li>📸 Multiple angles & close-ups</li>
+               <li>🖼 Edited product catalog</li>
+             </ul>
+   
 
-          {/* Product Photography */}
-          <div className="mb-12 bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-            <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-              Product Photography
-            </h2>
-            <p className="text-gray-700 mb-4">
-              High-quality images to make your products stand out
-            </p>
-            <ul className="text-gray-600 space-y-2 mb-4">
-              <li>💰 Starting from ₹8,000</li>
-              <li>⏱ Half-day shoot</li>
-              <li>📦 Studio setup or on-site</li>
-              <li>📸 Multiple angles & close-ups</li>
-              <li>🖼 Edited product catalog</li>
-            </ul>
-            <div className="flex gap-4 mt-6">
+           <div className="flex gap-4 mt-6">
               <a
                 href="#samples-product"
                 className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
