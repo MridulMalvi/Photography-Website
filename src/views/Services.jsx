@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { services } from "./servicesData"; // Import the services data
 
 const Services = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const openModal = (images) => {
+    setSelectedImages(images);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImages([]);
+  };
+
   return (
     <>
       <section
@@ -12,133 +26,68 @@ const Services = () => {
         </h1>
 
         <div className="mb-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-          {/* Wedding Photography */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-            <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-              Wedding Photography
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Complete wedding coverage with artistic storytelling
-            </p>
-            <ul className="text-gray-600 space-y-2 mb-4">
-              <li>💰 Starting from ₹75,000</li>
-              <li>⏱ 12 hours coverage</li>
-              <li>📸 Pre-wedding shoot</li>
-              <li>💒 Ceremony & Reception coverage</li>
-              <li>🖼 Edited online gallery and Physical album</li>
-            </ul>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="#samples-wedding"
-                className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
-              >
-                View Samples
-              </a>
-              <a
-                href="#book"
-                className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
-              >
-                Book Now
-              </a>
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left"
+            >
+              <h2 className="text-2xl font-bold mb-2 text-yellow-800">
+                {service.title}
+              </h2>
+              <p className="text-gray-700 mb-4">{service.description}</p>
+              <ul className="text-gray-600 space-y-2 mb-4">
+                {service.details.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
+              </ul>
+              <div className="flex gap-4 mt-6">
+                <button
+                  onClick={() => openModal(service.samples)}
+                  className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
+                >
+                  View Samples
+                </button>
+                <a
+                  href="#book"
+                  className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
+                >
+                  Book Now
+                </a>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          {/* Portrait Sessions */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-            <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-              Portrait Sessions
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Professional portraits for families, individuals, and couples
-            </p>
-            <ul className="text-gray-600 space-y-2 mb-4">
-              <li>💰 Starting from ₹5,000</li>
-              <li>⏱ 2 hours session</li>
-              <li>📍 Indoor or Outdoor location</li>
-              <li>📸 Multiple outfit changes</li>
-              <li>🖼 Edited high-resolution images</li>
-            </ul>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="#samples-portrait"
-                className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+          <div className="bg-white p-5 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-yellow-800">Image Samples</h2>
+              <button
+                onClick={closeModal}
+                className="text-gray-600 hover:text-red-500 transition-transform duration-300 transform hover:scale-125 text-3xl"
               >
-                View Samples
-              </a>
-              <a
-                href="#book"
-                className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
-              >
-                Book Now
-              </a>
+                &times;
+              </button>
             </div>
-          </div>
-
-                 {/* Event Coverage */}
-        <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-             <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-               Event Coverage
-             </h2>
-             <p className="text-gray-700 mb-4">
-               Comprehensive photography for corporate events, parties, and more
-             </p>
-             <ul className="text-gray-600 space-y-2 mb-4">
-               <li>💰 Starting from ₹10,000</li>
-               <li>⏱ 5 hours coverage</li>
-               <li>🎤 Corporate functions & parties</li>
-               <li>📸 Team photos & candid moments</li>
-               <li>🖼 Edited online gallery</li>
-             </ul>
-                   <div className="flex gap-4 mt-6">
-                     <a
-                       href="#samples-event"
-                       className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
-                     >
-                       View Samples
-                     </a>
-                     <a
-                       href="#book"
-                       className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
-                     >
-                       Book Now
-                     </a>
-                   </div>
-                 </div>
-       
-                 {/* Product Photography */}
-        <div className=" bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left">
-             <h2 className="text-2xl font-bold mb-2 text-yellow-800">
-               Product Photography
-             </h2>
-             <p className="text-gray-700 mb-4">
-               High-quality images to make your products stand out
-             </p>
-             <ul className="text-gray-600 space-y-2 mb-4">
-               <li>💰 Starting from ₹8,000</li>
-               <li>⏱ Half-day shoot</li>
-               <li>📦 Studio setup or on-site</li>
-               <li>📸 Multiple angles & close-ups</li>
-               <li>🖼 Edited product catalog</li>
-             </ul>
-   
-
-           <div className="flex gap-4 mt-6">
-              <a
-                href="#samples-product"
-                className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
-              >
-                View Samples
-              </a>
-              <a
-                href="#book"
-                className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
-              >
-                Book Now
-              </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {selectedImages.map((image, index) => (
+                <div 
+                  key={index} 
+                  className="aspect-[4/3] overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-gray-100"
+                >
+                  <img
+                    src={image}
+                    alt={`Sample ${index + 1}`}
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      )}
     </>
   );
 };
