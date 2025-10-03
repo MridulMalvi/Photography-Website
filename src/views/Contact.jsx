@@ -1,6 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "Wedding Photography",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert("Contact form submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "Wedding Photography",
+          message: "",
+        });
+      } else {
+        alert("Failed to submit contact form.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred.");
+    }
+  };
+
   return (
     <>
       <div className="bg-[#eeebe2] min-h-screen py-16 px-4 sm:px-6 lg:px-8">
@@ -58,7 +96,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="bg-[#eeebe6] p-8 rounded-lg shadow-lg border-2 border-[#d5d0c8]">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 text-lg sm:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -72,6 +110,8 @@ const Contact = () => {
                       id="name"
                       required
                       placeholder="Your full name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="mt-1 w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
@@ -87,6 +127,8 @@ const Contact = () => {
                       id="email"
                       required
                       placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:border-yellow-500 focus:ring-yellow-500"
                     />
                   </div>
@@ -104,6 +146,8 @@ const Contact = () => {
                       type="tel"
                       id="phone"
                       placeholder="+91 XXXXX XXXXX"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"
                     />
                   </div>
@@ -116,6 +160,8 @@ const Contact = () => {
                     </label>
                     <select
                       id="service"
+                      value={formData.service}
+                      onChange={handleChange}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"
                     >
                       <option>Wedding Photography</option>
@@ -138,13 +184,15 @@ const Contact = () => {
                     id="message"
                     rows={4}
                     placeholder="Tell us about your photography needs..."
+                    value={formData.message}
+                    onChange={handleChange}
                     className="mt-1 mb-4 block w-full text-lg border-gray-300 rounded-md shadow-sm p-2 focus:ring-yellow-500 focus:border-yellow-500"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 rounded-md shadow-sm text-lg font-medium 
+                  className="w-full py-3 px-4 rounded-md shadow-sm text-lg font-medium
                   text-white bg-yellow-600 hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-600 transition-colors"
                 >
                   Send Message

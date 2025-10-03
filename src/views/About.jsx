@@ -16,16 +16,16 @@ const About = () => {
       id="about"
       className="pt-20 md:pt-32 px-4 md:px-12 text-center bg-[#eeebe2] min-h-screen flex flex-col justify-center"
     >
-      <h1 className="mt-5 mb-7 text-4xl md:text-5xl font-bold text-yellow-900">
+      <h1 className="mb-8 text-4xl md:text-5xl font-bold text-yellow-900">
         About Raj Photo Studio
       </h1>
 
       {/* Image */}
-      <div className="mb-4 flex justify-center items-center">
+      <div className="mb-8 flex justify-center items-center">
         <img
           src={image}
           alt="Raj Photo Studio"
-          className="rounded-xl shadow-lg sm:w-1/2 md:w-1/3 lg:w-1/5"
+          className="rounded-xl shadow-lg sm:w-1/2 md:w-1/3 lg:w-2/6"
         />
       </div>
 
