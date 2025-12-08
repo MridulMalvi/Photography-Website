@@ -12,6 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "mongodb": "^7.0.0",
     "mongoose": "^8.19.0"
   }
 }

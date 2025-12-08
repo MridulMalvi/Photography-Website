@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { services } from "./servicesData"; // Import the services data
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { services } from "./servicesData";
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
+  const navigate = useNavigate(); // 2. Initialize navigate hook
 
   const openModal = (images) => {
     setSelectedImages(images);
@@ -47,12 +49,13 @@ const Services = () => {
                 >
                   View Samples
                 </button>
-                <a
-                  href="#book"
+                {/* 3. Changed <a> to <button> and added onClick handler */}
+                <button
+                  onClick={() => navigate("/book")}
                   className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
                 >
                   Book Now
-                </a>
+                </button>
               </div>
             </div>
           ))}

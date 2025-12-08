@@ -38,21 +38,21 @@ const About = () => {
       </p>
 
       {/* Why Choose Us */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1  md:grid-cols-3 gap-8 mb-16">
         <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h2 className="text-2xl font-bold mb-2">Professional Team</h2>
+          <h2 className="text-2xl font-bold mb-2 text-yellow-800">Professional Team</h2>
           <p className="text-gray-700">
             Experienced photographers who capture your moments perfectly.
           </p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h2 className="text-2xl font-bold mb-2">Customer Satisfaction</h2>
+          <h2 className="text-2xl font-bold mb-2 text-yellow-800">Customer Satisfaction</h2>
           <p className="text-gray-700">
             Your happiness is our priority, ensuring memorable experiences.
           </p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-          <h2 className="text-2xl font-bold mb-2">High-Quality Equipment</h2>
+          <h2 className="text-2xl font-bold mb-2 text-yellow-800">High-Quality Equipment</h2>
           <p className="text-gray-700">
             We use the latest cameras and lenses for stunning results.
           </p>
