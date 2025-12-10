@@ -8,7 +8,7 @@ const Navbar = () => {
 
   // Reusable function for navigation
   const handleNavClick = (path) => {
-    setIsOpen(false); // close mobile menu after click
+    setIsOpen(false); 
     navigate(path);
   };
 

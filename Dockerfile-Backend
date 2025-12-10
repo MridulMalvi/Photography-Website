@@ -1,0 +1,18 @@
+# Dockerfile for the Backend (Node.js API)
+FROM node:20-alpine
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy dependency files and install them
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the backend code
+COPY . .
+
+# Expose the port your server.js is listening on (Assuming 5000)
+EXPOSE 5000
+
+# Command to start the application (Assuming your package.json has a "start" script)
+CMD [ "npm", "start" ]

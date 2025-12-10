@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # 1. Backend Service (API)
+  backend:
+    build: 
+      context: . 
+      dockerfile: Dockerfile-Backend # Pointing to the renamed file
+    container_name: photo_api
+    restart: always 
+    ports:
+      # Expose API on host port 5000
+      - "5000:5000" 
+
+  # 2. Frontend Service (React/Vite App)
+  frontend:
+    build: 
+      context: . 
+      dockerfile: Dockerfile-Frontend # Pointing to the renamed file
+    container_name: photo_website
+    restart: always
+    ports:
+      # Expose website on host port 80
+      - "80:80"
+    depends_on:
+      - backend
