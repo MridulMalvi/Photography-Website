@@ -77,7 +77,7 @@ Customers can book our services by:
 // Create the chatbot chain
 const createChatbotChain = () => {
   const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
+    model: "gemini-2.5-flash",
     apiKey: process.env.GEMINI_API_KEY,
     temperature: 0.7,
     maxOutputTokens: 500,

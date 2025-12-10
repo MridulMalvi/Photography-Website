@@ -21,9 +21,9 @@ const Services = () => {
     <>
       <section
         id="services"
-        className="bg-[#eeebe2] pt-20 md:pt-30 px-4 md:px-12 text-center bg-yellow min-h-screen flex flex-col justify-center"
+        className="pt-20 pb-20 md:pt-30 px-4 md:px-12 text-center min-h-screen flex flex-col justify-center bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100"
       >
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-yellow-900 mt-4 lg:mt-2 lg:pb-2 mb-10">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-amber-900 mt-4 lg:mt-2 lg:pb-2 mb-10">
           Our Services
         </h1>
 
@@ -31,13 +31,13 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition text-left"
+              className="bg-white/95 border border-amber-100 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition text-left"
             >
-              <h2 className="text-2xl font-bold mb-2 text-yellow-800">
+              <h2 className="text-2xl font-bold mb-2 text-amber-900">
                 {service.title}
               </h2>
-              <p className="text-gray-700 mb-4">{service.description}</p>
-              <ul className="text-gray-600 space-y-2 mb-4">
+              <p className="text-amber-800 mb-4">{service.description}</p>
+              <ul className="text-amber-700 space-y-2 mb-4">
                 {service.details.map((detail, i) => (
                   <li key={i}>{detail}</li>
                 ))}
@@ -45,14 +45,13 @@ const Services = () => {
               <div className="flex gap-4 mt-6">
                 <button
                   onClick={() => openModal(service.samples)}
-                  className="flex-1 text-yellow-800 border border-yellow-800 px-4 py-2 rounded-lg text-center hover:bg-yellow-100 transition font-medium"
+                  className="flex-1 text-amber-900 border border-amber-700 px-4 py-2 rounded-lg text-center hover:bg-amber-50 transition font-medium"
                 >
                   View Samples
                 </button>
-                {/* 3. Changed <a> to <button> and added onClick handler */}
                 <button
                   onClick={() => navigate("/book")}
-                  className="flex-1 bg-yellow-600 text-white px-4 py-2 rounded-lg text-center hover:bg-yellow-800 transition font-medium"
+                  className="flex-1 bg-amber-600 text-white px-4 py-2 rounded-lg text-center hover:bg-amber-700 transition font-medium shadow-sm"
                 >
                   Book Now
                 </button>
@@ -63,28 +62,30 @@ const Services = () => {
       </section>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
           <div className="bg-white p-5 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-yellow-800">Image Samples</h2>
+              <h2 className="text-2xl font-bold text-amber-900">
+                Image Samples
+              </h2>
               <button
                 onClick={closeModal}
-                className="text-gray-600 hover:text-red-500 transition-transform duration-300 transform hover:scale-125 text-3xl"
+                className="text-amber-700 hover:text-red-500 transition-transform duration-300 transform hover:scale-125 text-3xl"
               >
                 &times;
               </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {selectedImages.map((image, index) => (
-                <div 
-                  key={index} 
-                  className="aspect-[4/3] overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-gray-100"
+                <div
+                  key={index}
+                  className="aspect-[4/3] overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-amber-50"
                 >
                   <img
                     src={image}
                     alt={`Sample ${index + 1}`}
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
-                />
+                  />
                 </div>
               ))}
             </div>

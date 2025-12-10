@@ -16,7 +16,7 @@ const VerificationModal = ({ onClose, onVerify, initialPhone }) => {
     e.preventDefault();
     // Basic validation for phone length
     if (phone.replace(/\D/g, '').length < 10) {
-      setError('Please enter a valid phone number');
+      setError('Please enter a valid 10-digit phone number.');
       return;
     }
     setLoading(true);
@@ -67,55 +67,72 @@ const VerificationModal = ({ onClose, onVerify, initialPhone }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="bg-gray-900Ql border border-gray-700 bg-gray-900 p-8 rounded-2xl w-full max-w-md relative shadow-2xl transition-all transform scale-100 opacity-100">
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-white">
-          <X size={20} />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      {/* Modal Container: Changed to a light theme (bg-white) with amber border */}
+      <div className="bg-white border border-amber-300 p-8 rounded-2xl w-full max-w-md relative shadow-2xl transition-all transform scale-100 opacity-100">
+        
+        {/* Close Button: Changed color to fit the light theme */}
+        <button 
+          onClick={onClose} 
+          className="absolute top-4 right-4 text-amber-500 hover:text-amber-700 transition"
+        >
+          <X size={24} />
         </button>
 
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4 text-yellow-500">
+          {/* Icon Area: Changed background and icon color */}
+          <div className="w-16 h-16 bg-amber-100/70 border border-amber-300 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-600">
             <ShieldCheck size={32} />
           </div>
-          <h2 className="text-2xl font-serif font-bold text-white">Verify Identity</h2>
-          <p className="text-gray-400 text-sm mt-2">To secure your booking, please verify your mobile number.</p>
+          {/* Title: Changed text color to darker amber */}
+          <h2 className="text-2xl font-serif font-bold text-amber-900">Verify Identity</h2>
+          {/* Subtext: Changed text color */}
+          <p className="text-amber-700 text-sm mt-2">To secure your booking, please verify your mobile number.</p>
         </div>
 
         {step === 'phone' ? (
-          <form onSubmit={handleSendOtp} className="space-y-4">
+          <form onSubmit={handleSendOtp} className="space-y-6">
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Phone Number</label>
+              {/* Label: Changed text color */}
+              <label className="block text-sm font-semibold text-amber-800 mb-1">Phone Number</label>
+              {/* Input: Changed background, border, and text color */}
               <input 
                 type="tel" 
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(+91) 98765 43210"
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-yellow-500 focus:outline-none"
+                className="w-full bg-amber-50 border border-amber-300 rounded-lg px-4 py-3 text-amber-900 placeholder:text-amber-500 focus:border-amber-600 focus:outline-none"
               />
             </div>
-            {error && <p className="text-red-500 text-xs">{error}</p>}
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            
+            {/* Button: Changed background and hover color */}
             <button 
               type="submit"
               disabled={loading}
-              className="w-full bg-yellow-600 text-white font-bold py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-amber-600 text-white font-bold py-3 rounded-lg hover:bg-amber-700 transition-colors flex items-center justify-center gap-2 shadow-md"
             >
-              {loading ? <Loader2 className="animate-spin" /> : 'Send OTP'}
+              {loading ? <Loader2 className="animate-spin" size={20} /> : 'Send OTP'}
             </button>
           </form>
         ) : (
-          <form onSubmit={handleVerifyOtp} className="space-y-4">
+          <form onSubmit={handleVerifyOtp} className="space-y-6">
             {fetchingOtp ? (
-              <p className="text-center text-gray-300 mb-4">🔄 Fetching OTP...</p>
+              <p className="text-center text-amber-700 mb-4 flex items-center justify-center gap-2">
+                <Loader2 className="animate-spin text-amber-600" size={20} /> Sending OTP...
+              </p>
             ) : (
               generatedOtp && (
-                <p className="text-center text-gray-300 mb-4">
-                  ✅ Your OTP is: <span className="text-yellow-500 font-bold">{generatedOtp}</span>
+                <p className="text-center text-amber-800 mb-4">
+                  ✅ Your OTP is: <span className="text-amber-600 font-extrabold text-lg tracking-wider">{generatedOtp}</span>
                 </p>
               )
             )}
 
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Enter OTP</label>
+              {/* Label: Changed text color */}
+              <label className="block text-sm font-semibold text-amber-800 mb-1">Enter OTP</label>
+              {/* OTP Input: Changed background, border, and text color/style */}
               <input 
                 type="text" 
                 value={otp}
@@ -123,19 +140,22 @@ const VerificationModal = ({ onClose, onVerify, initialPhone }) => {
                 placeholder="XXXX"
                 maxLength={4}
                 disabled={fetchingOtp}
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-yellow-500 focus:outline-none text-center tracking-[1em] font-bold"
+                className="w-full bg-amber-50 border border-amber-300 rounded-lg px-4 py-3 text-amber-900 focus:border-amber-600 focus:outline-none text-center text-xl tracking-[0.5em] font-extrabold"
               />
             </div>
 
-            {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            
+            {/* Button: Changed background and hover color */}
             <button 
               type="submit"
               disabled={loading || fetchingOtp}
-              className="w-full bg-yellow-600 text-white font-bold py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-amber-600 text-white font-bold py-3 rounded-lg hover:bg-amber-700 transition-colors flex items-center justify-center gap-2 shadow-md"
             >
-              {loading ? <Loader2 className="animate-spin" /> : 'Verify & Continue'}
+              {loading ? <Loader2 className="animate-spin" size={20} /> : 'Verify & Continue'}
             </button>
 
+            {/* Back Button: Changed text color */}
             <button 
               type="button"
               onClick={() => {
@@ -144,7 +164,7 @@ const VerificationModal = ({ onClose, onVerify, initialPhone }) => {
                 setOtp('');
                 setError('');
               }}
-              className="w-full text-gray-400 text-sm hover:text-white"
+              className="w-full text-amber-600 text-sm hover:text-amber-800 mt-4 transition"
             >
               Back to Phone Number
             </button>

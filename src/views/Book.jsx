@@ -3,127 +3,257 @@ import VerificationModal from "../component/VerificationModal";
 
 const BookNow = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    city: '',
-    state: '',
-    workType: '',
-    eventDate: '',
-    details: ''
+    name: "",
+    phone: "",
+    city: "",
+    state: "",
+    workType: "",
+    eventDate: "",
+    details: "",
   });
 
-  // State to control the visibility of the Verification Modal
   const [showVerification, setShowVerification] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // 1. Intercept the initial form submission
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    
-    // VALIDATION FIX: Added check for formData.state
-    if (!formData.name || !formData.phone || !formData.city || !formData.state || !formData.workType || !formData.eventDate) {
-        alert("Please fill in all required fields.");
-        return;
+
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.city ||
+      !formData.state ||
+      !formData.workType ||
+      !formData.eventDate
+    ) {
+      alert("Please fill in all required fields.");
+      return;
     }
-    
-    // Show the verification modal if validation passes
+
     setShowVerification(true);
   };
 
-  // 2. Called when verification is successful
   const handleVerificationSuccess = async (verifiedPhone) => {
-    // Close the modal
     setShowVerification(false);
-    
-    // Update phone with the verified one (in case user changed it in modal)
+
+    // Update phone number with the verified one before submission
     const finalData = { ...formData, phone: verifiedPhone };
     setFormData(finalData);
 
-    // Proceed with backend submission
     try {
-      const response = await fetch('http://localhost:5000/api/bookings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalData)
+      const response = await fetch("http://localhost:5000/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(finalData),
       });
       if (response.ok) {
-        alert('Booking submitted successfully!');
-        // Reset form
-        setFormData({ name: '', phone: '', city: '', state: '', workType: '', eventDate: '', details: '' });
+        alert("Booking submitted successfully!");
+        // Reset the form data after successful submission
+        setFormData({
+          name: "",
+          phone: "",
+          city: "",
+          state: "",
+          workType: "",
+          eventDate: "",
+          details: "",
+        });
       } else {
-        alert('Failed to submit booking. Please try again.');
+        alert("Failed to submit booking. Please try again.");
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred while connecting to the server.');
+      console.error("Error:", error);
+      alert("An error occurred while connecting to the server.");
     }
   };
 
   return (
     <>
-      <div className="bg-[#f5f5f0] mb-5 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mt-8 mx-auto bg-[#d3d3c8] shadow-lg rounded-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-extrabold text-yellow-900">Book Now</h1>
-            <p className="mt-3 text-lg text-gray-900">
-              Fill out the form below to book our services.
+      <div className="min-h-screen pb-20 py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100">
+        
+        <div className="max-w-3xl mt-8 mx-auto bg-white border border-amber-300 shadow-2xl rounded-xl p-8 sm:p-10">
+          <div className="text-center mb-10">
+            {/* Header font color is darker for better contrast (amber-800) */}
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-800 tracking-tight">
+              Book Our Services
+            </h1>
+            {/* Subtext color is also darker (amber-700) */}
+            <p className="mt-4 text-lg text-amber-700">
+              Tell us about your event and we'll get back to you soon.
             </p>
           </div>
-          
-          <form onSubmit={handleFormSubmit} className="mb-5 space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-lg font-medium text-gray-700">Full Name *</label>
-              <input type="text" id="name" required value={formData.name} onChange={handleChange} placeholder="Enter your full name" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500" />
+
+          <form onSubmit={handleFormSubmit} className="space-y-8">
+            
+            {/* Input Field Styling Block */}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              
+              {/* Name Field */}
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  // Updated input style: visible border (amber-300), darker text (amber-900)
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                />
+              </div>
+
+              {/* Phone Field */}
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+91 XXXXX XXXXX"
+                  // Updated input style: visible border (amber-300), darker text (amber-900)
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                />
+              </div>
+
+              {/* City Field */}
+              <div>
+                <label
+                  htmlFor="city"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  City *
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  required
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Enter your city"
+                  // Updated input style: visible border (amber-300), darker text (amber-900)
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                />
+              </div>
+
+              {/* State Field */}
+              <div>
+                <label
+                  htmlFor="state"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  State *
+                </label>
+                <select
+                  id="state"
+                  required
+                  value={formData.state}
+                  onChange={handleChange}
+                  // Updated input style: visible border (amber-300), darker text (amber-900)
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                >
+                  <option value="">Select your state</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              {/* Work Type Field */}
+              <div>
+                <label
+                  htmlFor="workType"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  Work Type *
+                </label>
+                <select
+                  id="workType"
+                  required
+                  value={formData.workType}
+                  onChange={handleChange}
+                  // Updated input style: visible border (amber-300), darker text (amber-900)
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                >
+                  <option value="">Select the type of work</option>
+                  <option>Wedding Photography</option>
+                  <option>Engagement / Pre-Wedding</option>
+                  <option>Birthday Party</option>
+                  <option>Corporate Event</option>
+                  <option>Product Photography</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              {/* Event Date Field */}
+              <div>
+                <label
+                  htmlFor="eventDate"
+                  className="block text-sm font-bold text-amber-800 mb-1"
+                >
+                  Event Date *
+                </label>
+                <input
+                  type="date"
+                  id="eventDate"
+                  required
+                  value={formData.eventDate}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                />
+              </div>
             </div>
+
+       
             <div>
-              <label htmlFor="phone" className="block text-lg font-medium text-gray-700">Phone Number *</label>
-              <input type="tel" id="phone" required value={formData.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500" />
+              <label
+                htmlFor="details"
+                className="block text-sm font-bold text-amber-800 mb-1"
+              >
+                Other Important Details
+              </label>
+              <textarea
+                id="details"
+                rows={4}
+                value={formData.details}
+                onChange={handleChange}
+                placeholder="Mention venue, special requirements, expected dates if flexible..."
+                // Updated textarea style: visible border (amber-300), darker text (amber-900)
+                className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+              ></textarea>
             </div>
-            <div>
-              <label htmlFor="city" className="block text-lg font-medium text-gray-700">City *</label>
-              <input type="text" id="city" required value={formData.city} onChange={handleChange} placeholder="Enter your city" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500" />
-            </div>
-            <div>
-              <label htmlFor="state" className="block text-lg font-medium text-gray-700">State *</label>
-              <select id="state" required value={formData.state} onChange={handleChange} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
-                <option value="">Select your state</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="workType" className="block text-lg font-medium text-gray-700">Work Type *</label>
-              <select id="workType" required value={formData.workType} onChange={handleChange} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500">
-                <option value="">Select the type of work</option>
-                <option>Wedding Photography</option>
-                <option>Engagement / Pre-Wedding</option>
-                <option>Birthday Party</option>
-                <option>Corporate Event</option>
-                <option>Product Photography</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="eventDate" className="block text-lg font-medium text-gray-700">Event Date *</label>
-              <input type="date" id="eventDate" required value={formData.eventDate} onChange={handleChange} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500" />
-            </div>
-            <div>
-              <label htmlFor="details" className="block text-lg font-medium text-gray-700">Other Important Details</label>
-              <textarea id="details" rows={4} value={formData.details} onChange={handleChange} placeholder="Mention venue, special requirements..." className="mt-1 mb-5 block w-full border-gray-300 rounded-md shadow-sm p-3 focus:ring-yellow-500 focus:border-yellow-500"></textarea>
-            </div>
-            <button type="submit" className="w-full py-3 px-4 rounded-md shadow-sm text-lg font-medium text-white mb-6 bg-yellow-600 hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-600 transition-colors">
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-4 px-4 rounded-lg shadow-lg text-xl font-semibold
+              text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 ease-in-out"
+            >
               Verify & Submit Booking Request
             </button>
           </form>
         </div>
       </div>
 
+      {/* Verification Modal */}
       {showVerification && (
-        <VerificationModal 
-          onClose={() => setShowVerification(false)} 
+        <VerificationModal
+          onClose={() => setShowVerification(false)}
           onVerify={handleVerificationSuccess}
           initialPhone={formData.phone}
         />
