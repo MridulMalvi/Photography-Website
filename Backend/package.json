@@ -12,6 +12,11 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@langchain/google-genai": "^2.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "langchain": "^1.1.5",
     "mongodb": "^7.0.0",
     "mongoose": "^8.19.0"
   }
