@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const Booking = require('./Models/Booking');
 const Contact = require('./Models/Contact');
+const { initializeChatbot, processMessage } = require('./chatbot');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Initialize chatbot
+initializeChatbot();
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
@@ -39,6 +43,26 @@ app.post('/api/contacts', async (req, res) => {
     res.status(201).json({ message: 'Contact form submitted successfully!' });
   } catch (error) {
     res.status(500).json({ message: 'Error submitting contact form.', error });
+  }
+});
+
+// Route to handle chatbot messages
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message, chatHistory } = req.body;
+    
+    if (!message || typeof message !== 'string') {
+      return res.status(400).json({ message: 'Message is required' });
+    }
+
+    const response = await processMessage(message, chatHistory || []);
+    res.status(200).json({ response });
+  } catch (error) {
+    console.error('Chat error:', error);
+    res.status(500).json({ 
+      message: 'Error processing chat message.',
+      response: "I'm sorry, I encountered an error. Please try again or contact us directly at +91 98765 43210."
+    });
   }
 });
 
