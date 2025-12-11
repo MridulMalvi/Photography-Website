@@ -78,7 +78,7 @@ Customers can book our services by:
 const createChatbotChain = () => {
   const model = new ChatGoogleGenerativeAI({
     model: "gemini-1.5-flash",
-    apiKey: process.env.GEMINI_API_KEY,
+    apiKey: process.env.GOOGLE_API_KEY,
     temperature: 0.7,
     maxOutputTokens: 500,
   });
@@ -119,7 +119,7 @@ let chatbotChain = null;
 // Initialize the chatbot
 const initializeChatbot = () => {
   if (!process.env.GEMINI_API_KEY) {
-    console.warn('Warning: GEMINI_API_KEY not set. Chatbot will not function.');
+    console.warn('Warning: GOOGLE_API_KEY not set. Chatbot will not function.');
     return null;
   }
   chatbotChain = createChatbotChain();
