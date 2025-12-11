@@ -2,7 +2,7 @@ const { ChatGoogleGenerativeAI } = require("@langchain/google-genai");
 const { PromptTemplate } = require("@langchain/core/prompts");
 const { StringOutputParser } = require("@langchain/core/output_parsers");
 const { RunnableSequence } = require("@langchain/core/runnables");
-
+require('dotenv').config();
 // Knowledge base about Raj Photo Studio
 const knowledgeBase = `
 # Raj Photo Studio - Knowledge Base
@@ -118,7 +118,7 @@ let chatbotChain = null;
 
 // Initialize the chatbot
 const initializeChatbot = () => {
-  if (!process.env.GEMINI_API_KEY) {
+  if (!process.env.GOOGLE_API_KEY) {
     console.warn('Warning: GOOGLE_API_KEY not set. Chatbot will not function.');
     return null;
   }
