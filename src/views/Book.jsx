@@ -44,7 +44,7 @@ const BookNow = () => {
     setFormData(finalData);
 
     try {
-      const response = await fetch("https://raj-photo-backend.onrender.com/bookings", {
+      const response = await fetch("https://raj-photo-backend.onrender.com/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(finalData),

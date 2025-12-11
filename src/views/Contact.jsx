@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://raj-photo-backend.onrender.com/contacts", {
+      const response = await fetch("https://raj-photo-backend.onrender.com/api/contacts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
