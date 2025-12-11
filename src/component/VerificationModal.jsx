@@ -124,7 +124,7 @@ const VerificationModal = ({ onClose, onVerify, initialPhone }) => {
             ) : (
               generatedOtp && (
                 <p className="text-center text-amber-800 mb-4">
-                  ✅ Your OTP is: <span className="text-amber-600 font-extrabold text-lg tracking-wider">{generatedOtp}</span>
+                   Your OTP is: <span className="text-amber-600 font-extrabold text-lg tracking-wider">{generatedOtp}</span>
                 </p>
               )
             )}

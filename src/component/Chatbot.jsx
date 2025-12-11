@@ -43,7 +43,7 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://photography-website-bw7w.onrender.com", {
+      const response = await fetch("https://raj-photo-backend.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
