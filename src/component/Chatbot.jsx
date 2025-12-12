@@ -65,7 +65,7 @@ const Chatbot = () => {
             "I'm sorry, I couldn't process your request. Please try again.",
         },
       ]);
-    } catch (error) {
+    } catch {
       setMessages([
         ...newMessages,
         {
@@ -88,10 +88,10 @@ const Chatbot = () => {
       {/* Chat Button */}
       <button
         onClick={toggleChat}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 border border-amber-300 ${
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-all duration-300 border border-amber-300 dark:border-gray-600 ${
           isOpen
-            ? "bg-amber-600 hover:bg-amber-700"
-            : "bg-yellow-500 hover:bg-yellow-600"
+            ? "bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800"
+            : "bg-yellow-500 hover:bg-yellow-600 dark:bg-amber-600 dark:hover:bg-amber-700"
         }`}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
@@ -104,22 +104,22 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-[500px] bg-amber-50 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-amber-200">
+        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-[500px] bg-amber-50 dark:bg-gray-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-amber-200 dark:border-gray-700 transition-colors duration-300">
           {/* Header */}
-          <div className="bg-amber-500 bg-gradient-to-r from-yellow-400 to-amber-500 p-4 flex items-center gap-3">
-            <div className="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center shadow-md">
+          <div className="bg-amber-500 dark:bg-gray-900 bg-gradient-to-r from-yellow-400 to-amber-500 dark:from-gray-800 dark:to-gray-900 p-4 flex items-center gap-3 transition-colors duration-300">
+            <div className="w-10 h-10 bg-amber-400 dark:bg-amber-600 rounded-full flex items-center justify-center shadow-md transition-colors duration-300">
               <Bot className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-white font-bold">
                 AI Assistant Raj Photo Studio
               </h3>
-              <p className="text-amber-100 text-sm">Online</p>
+              <p className="text-amber-100 dark:text-gray-300 text-sm transition-colors duration-300">Online</p>
             </div>
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-amber-50 via-yellow-50 to-amber-100">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-amber-50 via-yellow-50 to-amber-100 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 transition-colors duration-300">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -130,22 +130,22 @@ const Chatbot = () => {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${
                     message.role === "user"
-                      ? "bg-amber-200"
-                      : "bg-yellow-300"
-                  }`}
+                      ? "bg-amber-200 dark:bg-amber-700"
+                      : "bg-yellow-300 dark:bg-gray-700"
+                  } transition-colors duration-300`}
                 >
                   {message.role === "user" ? (
-                    <User className="w-4 h-4 text-amber-900" />
+                    <User className="w-4 h-4 text-amber-900 dark:text-amber-200 transition-colors duration-300" />
                   ) : (
-                    <Bot className="w-4 h-4 text-amber-900" />
+                    <Bot className="w-4 h-4 text-amber-900 dark:text-amber-200 transition-colors duration-300" />
                   )}
                 </div>
                 <div
                   className={`max-w-[75%] p-3 rounded-2xl text-sm ${
                     message.role === "user"
-                      ? "bg-amber-500 text-white rounded-tr-none"
-                      : "bg-yellow-100 text-amber-900 rounded-tl-none border border-yellow-200"
-                  }`}
+                      ? "bg-amber-500 dark:bg-amber-700 text-white rounded-tr-none"
+                      : "bg-yellow-100 dark:bg-gray-700 text-amber-900 dark:text-gray-100 rounded-tl-none border border-yellow-200 dark:border-gray-600"
+                  } transition-colors duration-300`}
                 >
                   <p className="whitespace-pre-wrap">{message.content}</p>
                 </div>
@@ -154,21 +154,21 @@ const Chatbot = () => {
 
             {isLoading && (
               <div className="flex items-start gap-2">
-                <div className="w-8 h-8 rounded-full bg-amber-300 flex items-center justify-center shadow-sm">
-                  <Bot className="w-4 h-4 text-amber-900" />
+                <div className="w-8 h-8 rounded-full bg-amber-300 dark:bg-gray-700 flex items-center justify-center shadow-sm transition-colors duration-300">
+                  <Bot className="w-4 h-4 text-amber-900 dark:text-amber-200 transition-colors duration-300" />
                 </div>
-                <div className="bg-yellow-50 border border-yellow-200 p-3 rounded-2xl rounded-tl-none shadow-sm">
+                <div className="bg-yellow-50 dark:bg-gray-700 border border-yellow-200 dark:border-gray-600 p-3 rounded-2xl rounded-tl-none shadow-sm transition-colors duration-300">
                   <div className="flex space-x-1">
                     <div
-                      className="w-2 h-2 bg-amber-400 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-amber-400 dark:bg-amber-500 rounded-full animate-bounce transition-colors duration-300"
                       style={{ animationDelay: "0ms" }}
                     />
                     <div
-                      className="w-2 h-2 bg-amber-400 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-amber-400 dark:bg-amber-500 rounded-full animate-bounce transition-colors duration-300"
                       style={{ animationDelay: "150ms" }}
                     />
                     <div
-                      className="w-2 h-2 bg-amber-400 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-amber-400 dark:bg-amber-500 rounded-full animate-bounce transition-colors duration-300"
                       style={{ animationDelay: "300ms" }}
                     />
                   </div>
@@ -182,7 +182,7 @@ const Chatbot = () => {
           {/* Input Form */}
           <form
             onSubmit={handleSubmit}
-            className="p-4 bg-amber-50 border-t border-amber-200"
+            className="p-4 bg-amber-50 dark:bg-gray-800 border-t border-amber-200 dark:border-gray-700 transition-colors duration-300"
           >
             <div className="flex gap-2">
               <input
@@ -191,13 +191,13 @@ const Chatbot = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border border-amber-300 rounded-full bg-white/90 text-amber-900 placeholder:amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent text-sm"
+                className="flex-1 px-4 py-2 border border-amber-300 dark:border-gray-600 rounded-full bg-white/90 dark:bg-gray-700 text-amber-900 dark:text-gray-100 placeholder:amber-400 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-600 focus:border-transparent text-sm transition-colors duration-300"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="p-2 bg-amber-500 text-white rounded-full hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-md"
+                className="p-2 bg-amber-500 dark:bg-amber-600 text-white rounded-full hover:bg-amber-600 dark:hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-md"
                 aria-label="Send message"
               >
                 <Send className="w-5 h-5" />

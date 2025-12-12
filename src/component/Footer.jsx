@@ -3,18 +3,18 @@ import { Camera, Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = ({ handleNavClick }) => {
   return (
-    <footer className="bg-yellow-900 text-white pb-6 px-4 md:px-12 rounded-t-sm shadow-inner pt-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-yellow-700 pb-10">
+    <footer className="bg-yellow-900 dark:bg-gray-950 text-white pb-6 px-4 md:px-12 rounded-t-sm shadow-inner pt-5 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-yellow-700 dark:border-gray-700 pb-10">
         {/* Column 1: Logo & Mission */}
         <div>
           <div
-            className="flex text-yellow-100 items-center gap-2 text-2xl font-bold mb-4 lg:pt-3 cursor-pointer"
+            className="flex text-yellow-100 dark:text-gray-200 items-center gap-2 text-2xl font-bold mb-4 lg:pt-3 cursor-pointer"
             onClick={() => handleNavClick("/")}
           >
-            <Camera className="text-yellow-200" />
+            <Camera className="text-yellow-200 dark:text-yellow-400" />
             Raj Photo Studio
           </div>
-          <p className="text-sm text-white">
+          <p className="text-sm text-white dark:text-gray-300">
             Capturing moments today, creating memories for tomorrow.
           </p>
           <div className="flex gap-4 mt-4 text-xl">
@@ -50,14 +50,14 @@ const Footer = ({ handleNavClick }) => {
 
         {/* Column 2: Quick Links */}
         <div className="lg:px-12 lg:ml-5 mt-3">
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400">
+          <h3 className="text-lg font-semibold mb-4 text-yellow-400 dark:text-yellow-300">
             Quick Links
           </h3>
           <ul className="space-y-3">
             <li>
               <button
                 onClick={() => handleNavClick("/")}
-                className="text-sm hover:text-yellow-400 transition text-left w-auto"
+                className="text-sm hover:text-yellow-400 dark:hover:text-yellow-300 transition text-left w-auto"
               >
                 Home
               </button>
@@ -65,7 +65,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/services")}
-                className="text-sm hover:text-yellow-400 transition text-left w-auto"
+                className="text-sm hover:text-yellow-400 dark:hover:text-yellow-300 transition text-left w-auto"
               >
                 Services
               </button>
@@ -73,7 +73,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/about")}
-                className="text-sm hover:text-yellow-400 transition text-left w-auto"
+                className="text-sm hover:text-yellow-400 dark:hover:text-yellow-300 transition text-left w-auto"
               >
                 About Us
               </button>
@@ -81,7 +81,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/contact")}
-                className="text-sm hover:text-yellow-400 transition text-left w-auto"
+                className="text-sm hover:text-yellow-400 dark:hover:text-yellow-300 transition text-left w-auto"
               >
                 Contact
               </button>
@@ -91,14 +91,14 @@ const Footer = ({ handleNavClick }) => {
 
         {/* Column 3: Services */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400 sm:pt-4">
+          <h3 className="text-lg font-semibold mb-4 text-yellow-400 dark:text-yellow-300 sm:pt-4">
             Our Expertise
           </h3>
           <ul className="space-y-3">
             <li>
               <button
                 onClick={() => handleNavClick("/services")}
-                className="text-sm hover:text-yellow-100 transition text-left w-auto"
+                className="text-sm hover:text-yellow-100 dark:hover:text-yellow-200 transition text-left w-auto"
               >
                 Wedding Photography
               </button>
@@ -106,7 +106,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/services")}
-                className="text-sm hover:text-yellow-100 transition text-left w-auto"
+                className="text-sm hover:text-yellow-100 dark:hover:text-yellow-200 transition text-left w-auto"
               >
                 Portrait Sessions
               </button>
@@ -114,7 +114,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/services")}
-                className="text-sm hover:text-yellow-100 transition text-left w-auto"
+                className="text-sm hover:text-yellow-100 dark:hover:text-yellow-200 transition text-left w-auto"
               >
                 Event Coverage
               </button>
@@ -122,7 +122,7 @@ const Footer = ({ handleNavClick }) => {
             <li>
               <button
                 onClick={() => handleNavClick("/services")}
-                className="text-sm hover:text-yellow-100 transition text-left w-auto"
+                className="text-sm hover:text-yellow-100 dark:hover:text-yellow-200 transition text-left w-auto"
               >
                 Product Photography
               </button>
@@ -132,10 +132,10 @@ const Footer = ({ handleNavClick }) => {
 
         {/* Column 4: Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400 sm:pt-4">
+          <h3 className="text-lg font-semibold mb-4 text-yellow-400 dark:text-yellow-300 sm:pt-4">
             Reach Us
           </h3>
-          <ul className="space-y-3 text-sm text-white">
+          <ul className="space-y-3 text-sm text-white dark:text-gray-300">
             <li className="flex items-center gap-2">📞 +91 98765 43210</li>
             <li className="flex items-center gap-2">
               ✉️ hello@rajphotostudio.com
@@ -149,7 +149,7 @@ const Footer = ({ handleNavClick }) => {
 
       {/* Copyright */}
       <div className="text-center pt-6">
-        <p className="text-xs text-white">
+        <p className="text-xs text-white dark:text-gray-300">
           &copy; {new Date().getFullYear()} Raj Photo Studio. All rights
           reserved.
         </p>
