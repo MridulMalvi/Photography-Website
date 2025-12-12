@@ -65,7 +65,7 @@ const Chatbot = () => {
             "I'm sorry, I couldn't process your request. Please try again.",
         },
       ]);
-    } catch (error) {
+    } catch {
       setMessages([
         ...newMessages,
         {
