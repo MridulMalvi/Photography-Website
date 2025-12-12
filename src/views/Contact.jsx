@@ -41,14 +41,14 @@ const Contact = () => {
 
   return (
     <>
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100">
+      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
           {/* Title */}
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-900 mb-4 mt-10">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-900 dark:text-amber-400 mb-4 mt-10 transition-colors duration-300">
               Get In Touch
             </h1>
-            <p className="max-w-2xl mx-auto sm:text-xl sm:mt-4 lg:mt-6 lg:text-2xl text-amber-800">
+            <p className="max-w-2xl mx-auto sm:text-xl sm:mt-4 lg:mt-6 lg:text-2xl text-amber-800 dark:text-amber-300 transition-colors duration-300">
               Ready to capture your special moments? Contact us to discuss your
               photography needs and get a personalized quote.
             </p>
@@ -59,11 +59,11 @@ const Contact = () => {
             {/* Contact Info + Hours */}
             <div className="space-y-8">
               {/* Info */}
-              <div className="mt-6 bg-white/95 p-8 rounded-lg shadow-md border border-amber-100">
-                <h2 className="text-2xl font-bold text-amber-900 mb-4">
+              <div className="mt-6 bg-white/95 dark:bg-gray-800/95 p-8 rounded-lg shadow-md border border-amber-100 dark:border-gray-700 transition-colors duration-300">
+                <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-400 mb-4 transition-colors duration-300">
                   Contact Information
                 </h2>
-                <ul className="space-y-4 text-lg text-amber-800">
+                <ul className="space-y-4 text-lg text-amber-800 dark:text-amber-200 transition-colors duration-300">
                   <li>📞 +91 98765 43210</li>
                   <li>✉️ rajphotostudio@gmail.com</li>
                   <li>
@@ -73,11 +73,11 @@ const Contact = () => {
               </div>
 
               {/* Hours */}
-              <div className="bg-white/95 p-8 rounded-lg shadow-md border border-amber-100">
-                <h2 className="text-2xl font-bold text-amber-900 mb-4">
+              <div className="bg-white/95 dark:bg-gray-800/95 p-8 rounded-lg shadow-md border border-amber-100 dark:border-gray-700 transition-colors duration-300">
+                <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-400 mb-4 transition-colors duration-300">
                   Studio Hours
                 </h2>
-                <ul className="space-y-2 text-amber-800 text-lg">
+                <ul className="space-y-2 text-amber-800 dark:text-amber-200 text-lg transition-colors duration-300">
                   <li className="flex justify-between">
                     <span>Mon - Fri</span>
                     <span>9:00 AM - 7:00 PM</span>
@@ -95,13 +95,13 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-amber-50/80 p-8 rounded-lg shadow-md border border-amber-200">
+            <div className="bg-amber-50/80 dark:bg-gray-700/80 p-8 rounded-lg shadow-md border border-amber-200 dark:border-gray-600 transition-colors duration-300">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 text-lg sm:grid-cols-2 gap-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block font-medium text-amber-900"
+                      className="block font-medium text-amber-900 dark:text-amber-300 transition-colors duration-300"
                     >
                       Name *
                     </label>
@@ -112,13 +112,13 @@ const Contact = () => {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="mt-1 w-full border-amber-200 rounded-md shadow-sm p-3 bg-white focus:ring-amber-500 focus:border-amber-500"
+                      className="mt-1 w-full border-amber-200 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-800 dark:text-gray-100 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block font-medium text-amber-900"
+                      className="block font-medium text-amber-900 dark:text-amber-300 transition-colors duration-300"
                     >
                       Email *
                     </label>
@@ -129,7 +129,7 @@ const Contact = () => {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="mt-1 block w-full border-amber-200 rounded-md shadow-sm p-3 bg-white focus:border-amber-500 focus:ring-amber-500"
+                      className="mt-1 block w-full border-amber-200 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-800 dark:text-gray-100 focus:border-amber-500 focus:ring-amber-500 transition-colors duration-300"
                     />
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="text-lg block font-medium text-amber-900"
+                      className="text-lg block font-medium text-amber-900 dark:text-amber-300 transition-colors duration-300"
                     >
                       Phone
                     </label>
@@ -148,13 +148,13 @@ const Contact = () => {
                       placeholder="+91 XXXXX XXXXX"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="mt-1 block w-full border-amber-200 rounded-md shadow-sm p-3 bg-white focus:ring-amber-500 focus:border-amber-500"
+                      className="mt-1 block w-full border-amber-200 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-800 dark:text-gray-100 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="service"
-                      className="text-lg block font-medium text-amber-900"
+                      className="text-lg block font-medium text-amber-900 dark:text-amber-300 transition-colors duration-300"
                     >
                       Service
                     </label>
@@ -162,7 +162,7 @@ const Contact = () => {
                       id="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="mt-1 block w-full border-amber-200 rounded-md shadow-sm p-3 bg-white focus:ring-amber-500 focus:border-amber-500"
+                      className="mt-1 block w-full border-amber-200 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-800 dark:text-gray-100 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
                     >
                       <option>Wedding Photography</option>
                       <option>Portrait Sessions</option>
@@ -176,7 +176,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="pb-2 text-lg block font-medium text-amber-900"
+                    className="pb-2 text-lg block font-medium text-amber-900 dark:text-amber-300 transition-colors duration-300"
                   >
                     Message
                   </label>
@@ -186,14 +186,14 @@ const Contact = () => {
                     placeholder="Tell us about your photography needs..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="mt-1 mb-4 block w-full text-lg border-amber-200 rounded-md shadow-sm p-2 bg-white focus:ring-amber-500 focus:border-amber-500"
+                    className="mt-1 mb-4 block w-full text-lg border-amber-200 dark:border-gray-600 rounded-md shadow-sm p-2 bg-white dark:bg-gray-800 dark:text-gray-100 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-300"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   className="w-full py-3 px-4 rounded-md shadow-md text-lg font-medium
-                  text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 transition-colors"
+                  text-white bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 transition-colors"
                 >
                   Send Message
                 </button>
