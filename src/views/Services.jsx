@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import { services } from "./servicesData";
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
-  const navigate = useNavigate(); // 2. Initialize navigate hook
+
+  const handleNavClick = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const openModal = (images) => {
     setSelectedImages(images);
@@ -20,7 +25,6 @@ const Services = () => {
   return (
     <>
       <section
-        id="services"
         className="pt-20 pb-20 md:pt-30 px-4 md:px-12 text-center min-h-screen flex flex-col justify-center bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100"
       >
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-amber-900 mt-4 lg:mt-2 lg:pb-2 mb-10">
@@ -50,7 +54,7 @@ const Services = () => {
                   View Samples
                 </button>
                 <button
-                  onClick={() => navigate("/book")}
+                  onClick={() => handleNavClick("book")}
                   className="flex-1 bg-amber-600 text-white px-4 py-2 rounded-lg text-center hover:bg-amber-700 transition font-medium shadow-sm"
                 >
                   Book Now

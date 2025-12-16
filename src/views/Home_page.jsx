@@ -1,12 +1,12 @@
 import React from "react";
 import image from "./images/Camera.png"; // Ensure the path is correct
-import { useNavigate } from "react-router-dom";
 
 const Home_page = () => {
-  const navigate = useNavigate();
-
-  const handleNavClick = (path) => {
-    navigate(path);
+  const handleNavClick = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -41,7 +41,7 @@ const Home_page = () => {
             */}
             <div className=" lg:ml-20 pl-16 flex justify-center lg:justify-start">
               <button
-                onClick={() => handleNavClick("/book")}
+                onClick={() => handleNavClick("book")}
                 className="bg-amber-500 text-white px-6 sm:px-9 md:px-10 lg:px-12 py-3 sm:py-5 md:py-5 lg:py-6 rounded-lg text-base sm:text-xl md:text-xl lg:text-3xl font-medium hover:bg-amber-600 transition mb-6 shadow-md"
               >
                 Book Now

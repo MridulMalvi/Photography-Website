@@ -31,7 +31,6 @@ const About = () => {
 
   return (
     <section
-      id="about"
       className="pt-24 md:pt-32 px-4 md:px-12 text-center min-h-screen flex flex-col justify-center bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100"
     >
       <h1 className="mb-8 text-4xl md:text-5xl font-bold text-amber-900">

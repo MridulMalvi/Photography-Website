@@ -1,15 +1,36 @@
-import React, { useState } from "react";
-import { FaCamera, FaBars, FaTimes } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { FaCamera, FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Reusable function for navigation
-  const handleNavClick = (path) => {
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode") === "true";
+    setIsDarkMode(savedMode);
+    if (savedMode) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("darkMode", newMode);
+    if (newMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  // Reusable function for navigation with smooth scroll
+  const handleNavClick = (sectionId) => {
     setIsOpen(false); // close mobile menu after click
-    navigate(path);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -19,7 +40,7 @@ const Navbar = () => {
           {/* Logo with Camera Icon */}
           <div
             className="flex items-center gap-3 text-3xl md:text-3xl font-bold text-yellow-800 cursor-pointer"
-            onClick={() => handleNavClick("/")}
+            onClick={() => handleNavClick("home")}
           >
             <FaCamera className="text-yellow-700" />
             Raj Photo Studio
@@ -28,34 +49,41 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-yellow-900 font-medium">
             <button
-              onClick={() => handleNavClick("/")}
+              onClick={() => handleNavClick("home")}
               className="hover:text-yellow-700 transition"
             >
               Home
             </button>
             <button
-              onClick={() => handleNavClick("/services")}
+              onClick={() => handleNavClick("services")}
               className="hover:text-yellow-700 transition"
             >
               Services
             </button>
             <button
-              onClick={() => handleNavClick("/about")}
+              onClick={() => handleNavClick("about")}
               className="hover:text-yellow-700 transition"
             >
               About
             </button>
             <button
-              onClick={() => handleNavClick("/contact")}
+              onClick={() => handleNavClick("contact")}
               className="hover:text-yellow-700 transition"
             >
               Contact
             </button>
             <button
-              onClick={() => handleNavClick("/book")}
+              onClick={() => handleNavClick("book")}
               className="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition"
             >
               Book Now
+            </button>
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-yellow-800 text-yellow-100 hover:bg-yellow-700 transition"
+              aria-label="Toggle Dark Mode"
+            >
+              {isDarkMode ? <FaSun className="text-xl" /> : <FaMoon className="text-xl" />}
             </button>
           </div>
 
@@ -74,31 +102,31 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden bg-white px-6 py-4 space-y-3 shadow-md">
             <button
-              onClick={() => handleNavClick("/")}
+              onClick={() => handleNavClick("home")}
               className="block w-full text-left text-yellow-900 hover:text-yellow-800 transition"
             >
               Home
             </button>
             <button
-              onClick={() => handleNavClick("/services")}
+              onClick={() => handleNavClick("services")}
               className="block w-full text-left text-yellow-900 hover:text-yellow-800 transition"
             >
               Services
             </button>
             <button
-              onClick={() => handleNavClick("/about")}
+              onClick={() => handleNavClick("about")}
               className="block w-full text-left text-yellow-900 hover:text-yellow-800 transition"
             >
               About
             </button>
             <button
-              onClick={() => handleNavClick("/contact")}
+              onClick={() => handleNavClick("contact")}
               className="block w-full text-left text-yellow-900 hover:text-yellow-800 transition"
             >
               Contact
             </button>
             <button
-              onClick={() => handleNavClick("/book")}
+              onClick={() => handleNavClick("book")}
               className="block w-full bg-amber-500 text-white px-4 py-2 rounded-lg text-center hover:bg-amber-600 transition"
             >
               Book Now

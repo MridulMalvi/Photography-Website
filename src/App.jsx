@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./component/Layout";
 import Home_page from "./views/Home_page";
 import Services from "./views/Services";
@@ -8,17 +7,23 @@ import Book from "./views/Book";
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home_page />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/book" element={<Book />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout>
+      <div id="home">
+        <Home_page />
+      </div>
+      <div id="services">
+        <Services />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="book">
+        <Book />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+    </Layout>
   );
 }
 
