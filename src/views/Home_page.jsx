@@ -14,7 +14,7 @@ const Home_page = () => {
       <section className="pb-12 min-h-screen flex items-center justify-center sm:pt-5 lg:pt-0 lg:mt-2 bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
         <div className="p-6 rounded-xl max-w-6xl flex flex-col lg:flex-row items-center gap-12">
           {/* Image Section */}
-          <div className="lg:w-1/2 flex justify-center sm:mt-12 lg:mt-10">
+          <div className="lg:w-1/2 flex justify-center mt-12 sm:mt-12 lg:mt-10">
             <img
               src={image}
               alt="Camera"
