@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-yellow-800 text-yellow-100 hover:bg-yellow-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition"
+              className="p-2 rounded-lg bg-yellow-500 text-yellow-100 hover:bg-yellow-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition"
               aria-label="Toggle Dark Mode"
             >
               {isDarkMode ? <FaSun className="text-lg" /> : <FaMoon className="text-lg" />}
