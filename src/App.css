@@ -1,4 +1,9 @@
 body {
   background-color: #eeebe2;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #111827;
 }

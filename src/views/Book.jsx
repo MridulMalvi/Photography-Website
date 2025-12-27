@@ -72,16 +72,16 @@ const BookNow = () => {
 
   return (
     <>
-      <div className="min-h-screen pb-20 py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100">
+      <div className="min-h-screen pb-20 py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
         
-        <div className="max-w-3xl mt-8 mx-auto bg-white border border-amber-300 shadow-2xl rounded-xl p-8 sm:p-10">
+        <div className="max-w-3xl mt-8 mx-auto bg-white dark:bg-gray-800 border border-amber-300 dark:border-gray-700 shadow-2xl rounded-xl p-8 sm:p-10">
           <div className="text-center mb-10">
             {/* Header font color is darker for better contrast (amber-800) */}
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-800 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-800 dark:text-amber-400 tracking-tight">
               Book Our Services
             </h1>
             {/* Subtext color is also darker (amber-700) */}
-            <p className="mt-4 text-lg text-amber-700">
+            <p className="mt-4 text-lg text-amber-700 dark:text-amber-300">
               Tell us about your event and we'll get back to you soon.
             </p>
           </div>
@@ -95,7 +95,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   Full Name *
                 </label>
@@ -107,7 +107,7 @@ const BookNow = () => {
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   // Updated input style: visible border (amber-300), darker text (amber-900)
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 placeholder:text-amber-500 dark:placeholder:text-gray-400 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 />
               </div>
 
@@ -115,7 +115,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   Phone Number *
                 </label>
@@ -127,7 +127,7 @@ const BookNow = () => {
                   onChange={handleChange}
                   placeholder="+91 XXXXX XXXXX"
                   // Updated input style: visible border (amber-300), darker text (amber-900)
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 placeholder:text-amber-500 dark:placeholder:text-gray-400 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 />
               </div>
 
@@ -135,7 +135,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="city"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   City *
                 </label>
@@ -147,7 +147,7 @@ const BookNow = () => {
                   onChange={handleChange}
                   placeholder="Enter your city"
                   // Updated input style: visible border (amber-300), darker text (amber-900)
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 placeholder:text-amber-500 dark:placeholder:text-gray-400 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 />
               </div>
 
@@ -155,7 +155,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="state"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   State *
                 </label>
@@ -165,7 +165,7 @@ const BookNow = () => {
                   value={formData.state}
                   onChange={handleChange}
                   // Updated input style: visible border (amber-300), darker text (amber-900)
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 >
                   <option value="">Select your state</option>
                   <option value="Madhya Pradesh">Madhya Pradesh</option>
@@ -178,7 +178,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="workType"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   Work Type *
                 </label>
@@ -188,7 +188,7 @@ const BookNow = () => {
                   value={formData.workType}
                   onChange={handleChange}
                   // Updated input style: visible border (amber-300), darker text (amber-900)
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 >
                   <option value="">Select the type of work</option>
                   <option>Wedding Photography</option>
@@ -204,7 +204,7 @@ const BookNow = () => {
               <div>
                 <label
                   htmlFor="eventDate"
-                  className="block text-sm font-bold text-amber-800 mb-1"
+                  className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
                 >
                   Event Date *
                 </label>
@@ -214,7 +214,7 @@ const BookNow = () => {
                   required
                   value={formData.eventDate}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                  className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
                 />
               </div>
             </div>
@@ -223,7 +223,7 @@ const BookNow = () => {
             <div>
               <label
                 htmlFor="details"
-                className="block text-sm font-bold text-amber-800 mb-1"
+                className="block text-sm font-bold text-amber-800 dark:text-amber-400 mb-1"
               >
                 Other Important Details
               </label>
@@ -234,7 +234,7 @@ const BookNow = () => {
                 onChange={handleChange}
                 placeholder="Mention venue, special requirements, expected dates if flexible..."
                 // Updated textarea style: visible border (amber-300), darker text (amber-900)
-                className="mt-1 block w-full border border-amber-300 rounded-lg shadow-sm p-3 bg-amber-50 text-amber-900 placeholder:text-amber-500 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
+                className="mt-1 block w-full border border-amber-300 dark:border-gray-600 rounded-lg shadow-sm p-3 bg-amber-50 dark:bg-gray-700 text-amber-900 dark:text-gray-200 placeholder:text-amber-500 dark:placeholder:text-gray-400 focus:ring-amber-600 focus:border-amber-600 transition duration-150 ease-in-out"
               ></textarea>
             </div>
 
@@ -242,7 +242,7 @@ const BookNow = () => {
             <button
               type="submit"
               className="w-full py-4 px-4 rounded-lg shadow-lg text-xl font-semibold
-              text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 ease-in-out"
+              text-white bg-amber-500 hover:bg-amber-700 dark:bg-amber-600 dark:hover:bg-amber-800 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 ease-in-out"
             >
               Verify & Submit Booking Request
             </button>

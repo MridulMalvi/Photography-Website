@@ -31,9 +31,9 @@ const About = () => {
 
   return (
     <section
-      className="pt-24 md:pt-32 px-4 md:px-12 text-center min-h-screen flex flex-col justify-center bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100"
+      className="pt-24 md:pt-32 px-4 md:px-12 text-center min-h-screen flex flex-col justify-center bg-gradient-to-b from-yellow-50 via-amber-50 to-yellow-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"
     >
-      <h1 className="mb-8 text-4xl md:text-5xl font-bold text-amber-900">
+      <h1 className="mb-8 text-4xl md:text-5xl font-bold text-amber-900 dark:text-amber-400">
         About Raj Photo Studio
       </h1>
 
@@ -42,12 +42,12 @@ const About = () => {
         <img
           src={image}
           alt="Raj Photo Studio"
-          className="rounded-xl shadow-lg sm:w-1/2 md:w-1/3 lg:w-2/6"
+          className="rounded-xl shadow-lg dark:shadow-gray-700 sm:w-1/2 md:w-1/3 lg:w-2/6"
         />
       </div>
 
       {/* Description */}
-      <p className="text-lg md:text-xl text-amber-800 mb-12 max-w-3xl mx-auto">
+      <p className="text-lg md:text-xl text-amber-800 dark:text-amber-300 mb-12 max-w-3xl mx-auto">
         At Raj Photo Studio, every moment is treated as a story worth preserving.
         With over 15 years of experience, we specialize in wedding photography,
         portraits, events, and product photography, delivering timeless visuals.
@@ -55,47 +55,47 @@ const About = () => {
 
       {/* Why Choose Us */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="bg-white/95 border border-amber-100 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
-          <h2 className="text-2xl font-bold mb-2 text-amber-900">
+        <div className="bg-white/95 dark:bg-gray-800/95 border border-amber-100 dark:border-gray-700 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
+          <h2 className="text-2xl font-bold mb-2 text-amber-900 dark:text-amber-400">
             Professional Team
           </h2>
-          <p className="text-amber-700">
+          <p className="text-amber-700 dark:text-gray-300">
             Experienced photographers who capture your moments with care and
             creativity.
           </p>
         </div>
-        <div className="bg-white/95 border border-amber-100 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
-          <h2 className="text-2xl font-bold mb-2 text-amber-900">
+        <div className="bg-white/95 dark:bg-gray-800/95 border border-amber-100 dark:border-gray-700 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
+          <h2 className="text-2xl font-bold mb-2 text-amber-900 dark:text-amber-400">
             Customer Satisfaction
           </h2>
-          <p className="text-amber-700">
+          <p className="text-amber-700 dark:text-gray-300">
             Friendly service, flexible packages, and a focus on your happiness.
           </p>
         </div>
-        <div className="bg-white/95 border border-amber-100 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
-          <h2 className="text-2xl font-bold mb-2 text-amber-900">
+        <div className="bg-white/95 dark:bg-gray-800/95 border border-amber-100 dark:border-gray-700 p-6 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition">
+          <h2 className="text-2xl font-bold mb-2 text-amber-900 dark:text-amber-400">
             High-Quality Equipment
           </h2>
-          <p className="text-amber-700">
+          <p className="text-amber-700 dark:text-gray-300">
             Premium cameras, lenses, and lighting for crisp, vibrant results.
           </p>
         </div>
       </div>
 
       {/* Our Gear */}
-      <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-8">
+      <h2 className="text-3xl md:text-4xl font-bold text-amber-900 dark:text-amber-400 mb-8">
         Our Gear
       </h2>
       <div className="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {equipments.map((item, index) => (
           <div
             key={index}
-            className="bg-amber-50 border border-amber-100 p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition"
+            className="bg-amber-50 dark:bg-gray-800 border border-amber-100 dark:border-gray-700 p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition"
           >
-            <h3 className="text-xl font-semibold text-amber-900">
+            <h3 className="text-xl font-semibold text-amber-900 dark:text-amber-400">
               {item.name}
             </h3>
-            <p className="text-amber-700 mt-2">{item.details}</p>
+            <p className="text-amber-700 dark:text-gray-300 mt-2">{item.details}</p>
           </div>
         ))}
       </div>
