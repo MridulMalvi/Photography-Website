@@ -39,7 +39,7 @@ const Home_page = () => {
               to override the parent's 'lg:text-left' alignment,
               while keeping it centered on smaller screens via 'text-center' on the parent div.
             */}
-            <div className=" lg:ml-20 pl-16 flex justify-center lg:justify-start">
+            <div className=" lg:ml-20 pl-6 md:ml-20 flex justify-center lg:justify-start ">
               <button
                 onClick={() => handleNavClick("book")}
                 className="bg-amber-500 text-white px-6 sm:px-9 md:px-10 lg:px-12 py-3 sm:py-5 md:py-5 lg:py-6 rounded-lg text-base sm:text-xl md:text-xl lg:text-3xl font-medium hover:bg-amber-700 dark:bg-amber-600 dark:hover:bg-amber-800
